@@ -22,9 +22,7 @@ If you do not have the IBL environment set up, please refer to the [IBL installa
 
 ## 📂 Directory Structure & Setup
 
-The script relies on specific local files to perform histology alignment (mapping channels to Allen/Chon,Kim Nat Comms atlas regions https://www.nature.com/articles/s41467-019-13057-w). **You must create a folder named `histology_files`** in the same directory as the script and populate it with the required atlas files.
-Extract allen_subdivisions.tif from concatenated_subdivisions_from_Chonetal2019_NatComms.zip
-Ensure your working directory looks like this
+The script relies on specific local files to perform histology alignment (mapping channels to Allen/Chon,Kim Nat Comms atlas regions https://www.nature.com/articles/s41467-019-13057-w). **You must create a folder named `histology_files`** in the same directory as the script and populate it with the required atlas files. Extract allen_subdivisions.tif from concatenated_subdivisions_from_Chonetal2019_NatComms.zip. Then ensure your working directory looks like this
 
 ```text
 project_root/
