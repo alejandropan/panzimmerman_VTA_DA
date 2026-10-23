@@ -1,10 +1,7 @@
-from iblutil.util import Bunch
-import sys 
 import numpy as np
 import pandas as pd
+from pathlib import Path
 from one.api import ONE
-from brainbox.io.one import SpikeSortingLoader
-import os
 from skimage import io
 from iblatlas.atlas import AllenAtlas
 
@@ -54,9 +51,10 @@ LASER_ONLY_ABB = ['/dop_56/2023-09-30/001',
 # Load Histology files and parameters
 ba = AllenAtlas()
 BREGMA_ALLEN =  np.array([5400,332,5739])
-img_path = r"histology_files\allen_subdivisions.tif"
-subdivisions = pd.read_csv(r'histology_files\41467_2019_13057_MOESM4_ESM.csv')
-nonstr_regions = pd.read_csv(r"histology_files\nonstr.csv")
+HERE = Path(__file__).resolve().parent
+img_path = HERE / "histology_files" / "allen_subdivisions.tif"
+subdivisions = pd.read_csv(HERE / "histology_files" / "41467_2019_13057_MOESM4_ESM.csv")
+nonstr_regions = pd.read_csv(HERE / "histology_files" / "nonstr.csv")
 im = io.imread(img_path)
 imarray = np.array(im)
 
@@ -81,7 +79,7 @@ heavy_datasets = [
     'raw_video_data/_iblrig_rightCamera.GPIO.bin',
     'raw_video_data/_iblrig_rightCamera.frame_counter.bin',
     'raw_video_data/_iblrig_rightCamera.raw.mp4',
-    'raw_video_data/_iblrig_rightCamera.timestamps.ssv'
+    'raw_video_data/_iblrig_rightCamera.timestamps.ssv',
     'spike_sorters/pykilosort/probe00/_kilosort_raw.output.tar',
     'spike_sorters/pykilosort/probe01/_kilosort_raw.output.tar',
     'raw_behavior_data/_iblrig_ambientSensorData.raw.jsonable',
@@ -122,12 +120,9 @@ heavy_datasets = [
     'spike_sorters/pykilosort/probe00/_kilosort_raw.output.tar']
 
 one=ONE(base_url='https://openalyx.internationalbrainlab.org/', password='international')
-org_root = r"\\cup.princeton.edu\witten\Alex\Data\Subjects"
 
 for sess in LASER_ONLY_ABB:
     # Start ONE for download
-    org_path = org_root + sess
-
     eid = one.path2eid(sess)
     datasets_to_download = one.list_datasets(eid)
 
@@ -165,7 +160,7 @@ for sess in LASER_ONLY_ABB:
         for failed in failed_downloads:
             print(f"  - {failed}")
 
-    download_dir = os.path.dirname(downloaded_file_paths[0])
+    download_dir = Path(downloaded_file_paths[0]).parent
 
     insertions = one.alyx.rest('insertions', 'list', session=eid)
     probe_eids = [ins['id'] for ins in insertions]
@@ -173,10 +168,10 @@ for sess in LASER_ONLY_ABB:
         if ins['id'] == 'ea2ccafc-12c1-4c58-9ca4-ec2b827548f3': # this the id of a bad probe 
             continue
         try:
-            spike_data_metrics = pd.read_parquet(download_dir + '/' + ins['name'] + r"/pykilosort/_av_clusters.metrics.pqt")
-        except:
-            spike_data_metrics = pd.read_parquet(download_dir + '/' + ins['name'] + r"/pykilosort/clusters.metrics.pqt")
-        spike_data_labels = pd.read_table(download_dir + '/' + ins['name'] + r'/pykilosort/_av_clusters.curatedLabels.tsv')
+            spike_data_metrics = pd.read_parquet(download_dir / ins['name'] / 'pykilosort' / '_av_clusters.metrics.pqt')
+        except FileNotFoundError:
+            spike_data_metrics = pd.read_parquet(download_dir / ins['name'] / 'pykilosort' / 'clusters.metrics.pqt')
+        spike_data_labels = pd.read_table(download_dir / ins['name'] / 'pykilosort' / '_av_clusters.curatedLabels.tsv')
         min_amp=30
         labels_select = spike_data_labels.loc[np.isin(spike_data_labels['group'],['good','mua']),'Unnamed: 0'].to_numpy()
         fr_select = spike_data_metrics.loc[spike_data_metrics['firing_rate']>=0.01, 'cluster_id'].to_numpy()
@@ -189,11 +184,11 @@ for sess in LASER_ONLY_ABB:
         mua_selection = np.intersect1d(amp_select, P_select) # for decoders only use single or mua present for at least 75% of the recording
         mua_selection = np.intersect1d(mua_selection, fr_select)
         mua_selection = np.intersect1d(mua_selection, labels_select) #addition jan 25
-        np.save(download_dir + '/' + ins['name'] + r'/pykilosort/clusters_selection.npy', selection)
-        np.save(download_dir + '/' + ins['name'] + r'/pykilosort/clusters_goodmua_selection.npy', mua_selection)
+        np.save(download_dir / ins['name'] / 'pykilosort' / 'clusters_selection.npy', selection)
+        np.save(download_dir / ins['name'] / 'pykilosort' / 'clusters_goodmua_selection.npy', mua_selection)
         ### Now make the cluster histology files
-        loc_codes = np.load(download_dir + '/' + ins['name'] + r'/pykilosort/channels.brainLocationIds_ccf_2017.npy')
-        coords = np.load(download_dir + '/' + ins['name'] + r'/pykilosort/channels.mlapdv.npy')
+        loc_codes = np.load(download_dir / ins['name'] / 'pykilosort' / 'channels.brainLocationIds_ccf_2017.npy')
+        coords = np.load(download_dir / ins['name'] / 'pykilosort' / 'channels.mlapdv.npy')
         allen_channels = ba.regions.id2acronym(loc_codes)
         striatal_channels = np.where(np.isin(allen_channels,['ACB','CP','STR']))[0]
         allen_w_kim_channels = np.copy(allen_channels)
@@ -223,22 +218,22 @@ for sess in LASER_ONLY_ABB:
                     subarea = subdivisions.loc[subdivisions['Structural ID']==label, 'Franklin-Paxinos Full name'].to_list()[0]
             if ~np.isin(subarea,nonstr_regions):
                 allen_w_kim_channels[i] = subarea
-        np.save(download_dir + '/' + ins['name'] + r'/pykilosort/channels.locations.npy', allen_w_kim_channels)
-        np.save(download_dir + '/' + ins['name'] + r'/pykilosort/channels.hemisphere.npy', 1*(coords[:,0]>0))
+        np.save(download_dir / ins['name'] / 'pykilosort' / 'channels.locations.npy', allen_w_kim_channels)
+        np.save(download_dir / ins['name'] / 'pykilosort' / 'channels.hemisphere.npy', 1*(coords[:,0]>0))
 
 
     print(download_dir)
-    laserOnset_times_one = np.load(download_dir + "\_av_trials.laserOnset_times.npy")
-    feedback_one = np.load(download_dir + "\_av_trials.feedbackType.npy")
-    leftReward_one = np.load(download_dir + "\_av_trials.leftReward.npy")
-    rightReward_one = np.load(download_dir + "\_av_trials.rightReward.npy")
-    goCueTrigger_times_one = np.load(download_dir + "\_ibl_trials.goCueTrigger_times.npy")
-    table_one = pd.read_parquet(download_dir + "\_ibl_trials.table.pqt")
-    position_one = np.load(download_dir + "\_ibl_wheel.position.npy")
-    timestamps_one = np.load(download_dir + "\_ibl_wheel.timestamps.npy")
-    intervals_one = np.load(download_dir + "\_ibl_wheelMoves.intervals.npy")
-    peakAmplitude_one = np.load(download_dir + "\_ibl_wheelMoves.peakAmplitude.npy")
-    probabilityRewardLeft_one = np.load(download_dir + "\_av_trials.probabilityRewardLeft.npy")
+    laserOnset_times_one = np.load(download_dir / "_av_trials.laserOnset_times.npy")
+    feedback_one = np.load(download_dir / "_av_trials.feedbackType.npy")
+    leftReward_one = np.load(download_dir / "_av_trials.leftReward.npy")
+    rightReward_one = np.load(download_dir / "_av_trials.rightReward.npy")
+    goCueTrigger_times_one = np.load(download_dir / "_ibl_trials.goCueTrigger_times.npy")
+    table_one = pd.read_parquet(download_dir / "_ibl_trials.table.pqt")
+    position_one = np.load(download_dir / "_ibl_wheel.position.npy")
+    timestamps_one = np.load(download_dir / "_ibl_wheel.timestamps.npy")
+    intervals_one = np.load(download_dir / "_ibl_wheelMoves.intervals.npy")
+    peakAmplitude_one = np.load(download_dir / "_ibl_wheelMoves.peakAmplitude.npy")
+    probabilityRewardLeft_one = np.load(download_dir / "_av_trials.probabilityRewardLeft.npy")
 
     goCue_times_one = table_one.goCue_times
     response_times_one = table_one.response_times
@@ -250,36 +245,11 @@ for sess in LASER_ONLY_ABB:
     feedbackTypeConsumed_one[feedbackTypeConsumed_one==0] = -1
     first_laser_times_one = laserOnset_times_one[~np.isnan(laserOnset_times_one)]
 
-    np.save(download_dir + "\_ibl_trials.goCue_times.npy", goCue_times_one)
-    np.save(download_dir + "\_ibl_trials.response_times.npy", response_times_one)
-    np.save(download_dir + "\_ibl_trials.choice.npy", choice_one)
-    np.save(download_dir + "\_ibl_trials.feedback_times.npy", feedback_times_one)
-    np.save(download_dir + "\_ibl_trials.firstMovement_times.npy", firstMovement_times_one)
-    np.save(download_dir + "\_ibl_trials.feedbackType.npy", feedback_s_one)
-    np.save(download_dir + "\_ibl_trials.feedbackTypeConsumed.npy", feedbackTypeConsumed_one)
-    np.save(download_dir + "\_ibl_trials.first_laser_times.npy", first_laser_times_one)
-
-    # Value variables
-    modelpred = pd.read_parquet(download_dir + "\_av_trials.modelPredictions.pqt")
-    np.save(download_dir + "\QFS_median_choice_prediction.npy", modelpred.QFS_median_choice_prediction.to_numpy())
-    np.save(download_dir + "\QFS_median_QL.npy", modelpred.QFS_median_QL.to_numpy())
-    np.save(download_dir + "\QFS_median_QLreward.npy", modelpred.QFS_median_QLreward.to_numpy())
-    np.save(download_dir + "\QFS_median_QLstay.npy", modelpred.QFS_median_QLstay.to_numpy())
-    np.save(download_dir + "\QFS_median_QR.npy", modelpred.QFS_median_QR.to_numpy())
-    np.save(download_dir + "\QFS_median_QRreward.npy", modelpred.QFS_median_QRreward.to_numpy())
-    np.save(download_dir + "\QFS_median_QRstay.npy", modelpred.QFS_median_QRstay.to_numpy())
-    np.save(download_dir + "\QFS_median_V.npy", modelpred.QFS_median_V.to_numpy())
-    #np.save(download_dir + "\QFS_medianmodel_params.pkl", modelpred.QFS_median_choice_prediction.to_numpy())
-    np.save(download_dir + "\QFS_RPE_median_choice_prediction.npy", modelpred.QFS_RPE_median_choice_prediction.to_numpy())
-    np.save(download_dir + "\QFS_RPE_median_QL.npy", modelpred.QFS_RPE_median_QL.to_numpy())
-    np.save(download_dir + "\QFS_RPE_median_QLreward.npy", modelpred.QFS_RPE_median_QLreward.to_numpy())
-    np.save(download_dir + "\QFS_RPE_median_QLstay.npy", modelpred.QFS_RPE_median_QLstay.to_numpy())
-    np.save(download_dir + "\QFS_RPE_median_QR.npy", modelpred.QFS_RPE_median_QR.to_numpy())
-    np.save(download_dir + "\QFS_RPE_median_QRreward.npy", modelpred.QFS_RPE_median_QRreward.to_numpy())
-    np.save(download_dir + "\QFS_RPE_median_QRstay.npy", modelpred.QFS_RPE_median_QRstay.to_numpy())
-    np.save(download_dir + "\QFS_RPE_median_V.npy", modelpred.QFS_RPE_median_V.to_numpy())
-    np.save(download_dir + "\AC_median_reward.npy", modelpred.AC_median_reward.to_numpy())
-    np.save(download_dir + "\AC_median_choice_prediction.npy", modelpred.AC_median_choice_prediction.to_numpy())
-    np.save(download_dir + "\AC_median_V.npy", modelpred.AC_median_V.to_numpy())
-    np.save(download_dir + "\REINFORCE_median_choice_prediction.npy", modelpred.REINFORCE_median_choice_prediction.to_numpy())
-    np.save(download_dir + "\REINFORCE_median_reward.npy", modelpred.REINFORCE_median_reward.to_numpy())
+    np.save(download_dir / "_ibl_trials.goCue_times.npy", goCue_times_one)
+    np.save(download_dir / "_ibl_trials.response_times.npy", response_times_one)
+    np.save(download_dir / "_ibl_trials.choice.npy", choice_one)
+    np.save(download_dir / "_ibl_trials.feedback_times.npy", feedback_times_one)
+    np.save(download_dir / "_ibl_trials.firstMovement_times.npy", firstMovement_times_one)
+    np.save(download_dir / "_ibl_trials.feedbackType.npy", feedback_s_one)
+    np.save(download_dir / "_ibl_trials.feedbackTypeConsumed.npy", feedbackTypeConsumed_one)
+    np.save(download_dir / "_ibl_trials.first_laser_times.npy", first_laser_times_one)

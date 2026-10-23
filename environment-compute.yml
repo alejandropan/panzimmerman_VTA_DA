@@ -1,0 +1,23 @@
+name: panzimmerman2026-compute
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - numpy=1.23.5
+  - pandas=2.0.3
+  - scipy=1.10.1
+  - matplotlib=3.8.4
+  - seaborn=0.12.2
+  - statsmodels=0.13.5
+  - arviz=0.17.1
+  - xarray=2023.10.1
+  - h5netcdf=1.8.1
+  - scikit-learn=1.2.2
+  - tqdm=4.65.0
+  - multiprocess=0.70.18
+  - mat73=0.60
+  - r-base=4.5
+  - r-lme4
+  - r-lmertest
+  - rpy2=3.6.7
+  - pip

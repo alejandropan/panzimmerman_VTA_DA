@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.DS_Store
+/fig*.pdf
+/figED*.pdf
+/fig*.png
+/data/figure2/meshes/
+/logs/
+Thumbs.db
+/exploratory/

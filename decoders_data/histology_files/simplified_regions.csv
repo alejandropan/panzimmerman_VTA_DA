@@ -1,0 +1,202 @@
+,original,group
+0,SSp-bfd5,SS
+1,SSp-bfd6a,SS
+2,SSp-bfd6b,SS
+3,SSp-n6a,SS
+4,SSp-n6b,SS
+5,SSp-un2/3,SS
+6,SSp-un4,SS
+7,SSp-un5,SS
+8,SSp-un6a,SS
+9,SSp-un6b,SS
+10,SSp-bfd1,SS
+11,SSp-bfd2/3,SS
+12,SSp-bfd4,SS
+13,SSp-ll5,SS
+14,SSp-ll6a,SS
+15,SSp-ll6b,SS
+16,SSp-m4,SS
+17,SSp-m5,SS
+18,SSp-m6a,SS
+19,SSp-m6b,SS
+20,SSp-n4,SS
+21,SSp-n5,SS
+22,SSp-ul2/3,SS
+23,SSp-ul4,SS
+24,SSp-ul5,SS
+25,SSp-ul6a,SS
+26,SSp-un6b,SS
+27,SSp-ul6b,SS
+28,SSp-n2/3,SS
+29,MOp1,MO
+30,MOp2/3,MO
+31,MOp5,MO
+32,MOp6a,MO
+33,MOp6b,MO
+34,MOs2/3,MO
+35,MOs5,MO
+36,MOs6a,MO
+37,MOs6b,MO
+38,MOs1,MO
+39,DP,PFC
+40,ILA1,PFC
+41,ILA2/3,PFC
+42,ILA5,PFC
+43,ILA6a,PFC
+44,PL1,PFC
+45,PL2/3,PFC
+46,PL5,PFC
+47,PL6a,PFC
+48,PL6b,PFC
+49,ACAd5,PFC
+50,ACAd6a,PFC
+51,ACAv2/3,PFC
+52,ACAv5,PFC
+53,ACAv6a,PFC
+54,ACAd6b,PFC
+55,ACAd2/3,PFC
+56,ORBl1,OFC
+57,ORBl2/3,OFC
+58,ORBl5,OFC
+59,ORBl6a,OFC
+60,ORBl6b,OFC
+61,ORBm2/3,OFC
+62,ORBm5,OFC
+63,ORBvl1,OFC
+64,ORBvl2/3,OFC
+65,ORBvl5,OFC
+66,ORBm6a,OFC
+67,ORBvl6a,OFC
+68,FRP5,OFC
+69,FRP6a,OFC
+70,Caudoputamen- rostral extreme,Rostral
+71,"Caudoputamen- rostral, medial",Rostral
+72,"Caudoputamen- rostral, intermediate, dorsal",Rostral
+73,"Caudoputamen- rostral, intermediate, ventral",Rostral
+74,"Caudoputamen- rostral, lateral, lateral strip",Rostral
+75,"Caudoputamen- rostra,l lateral, ventromedial",Rostral
+76,"Caudoputamen- intermediate, dorsomedial, dorsolateral",Int
+77,"Caudoputamen- intermediate, dorsomedial, intermedial",Int
+78,"Caudoputamen- intermediate, dorsomedial, central dorsal",Int
+79,"Caudoputamen- intermediate, dorsomedial, dorsal tip",Int
+80,"Caudoputamen- intermediate, ventromedial, ventromedial",Int
+81,"Caudoputamen- intermediate, ventromedial, ventral",Int
+82,"Caudoputamen- intermediate, ventromedial, central ventromedial",Int
+83,"Caudoputamen- intermediate, dorsolateral, dorsal",Int
+84,"Caudoputamen- intermediate, dorsolateral, intermedial dorsal",Int
+85,"Caudoputamen- intermediate, ventrolateral, intermedial ventral",Int
+86,"Caudoputamen- intermediate, ventrolateral, ventral",Int
+87,"Caudoputamen- intermediate, ventrolateral, ventral tip",Int
+88,"Caudoputamen- intermediate, ventrolateral, central ventrolateral",Int
+89,"Caudoputamen- caudal, dorsal",Caudal
+90,"Caudoputamen- caudal, dorsal, dorsomedial",Caudal
+91,"Caudoputamen- caudal, dorsal, dorsolateral",Caudal
+92,"Caudoputamen- caudal, dorsal, ventromedial",Caudal
+93,"Caudoputamen- caudal, intermediate, dorsal",Caudal
+94,"Caudoputamen- caudal, intermediate, ventromedial",Caudal
+95,"Caudoputamen- caudal, intermediate, ventrolateral",Caudal
+96,"Caudoputamen- caudal, ventral",Caudal
+97,Caudoputamen- caudal extreme,Caudal
+98,Lateral stripe of the striatum,NAc
+99,"Accumbens nucleus, core region",NAc
+100,"Accumbens nucleus, shell region",NAc
+101,"Lateral accumbens, shell region",NAc
+102,GPe,Gpe
+103,MA,VP
+104,SI,VP
+105,OLF,Olfactory
+106,AON,Olfactory
+107,TTd,Olfactory
+108,TTv,Olfactory
+109,MOB,Olfactory
+110,OT,Olfactory
+111,PIR,Olfactory
+112,EPd,Olfactory
+113,LSr,Septum
+114,LSv,Septum
+115,MS,Septum
+116,NDB,Septum
+117,TH,Thalamus
+118,LD,Thalamus
+119,RT,Thalamus
+120,VAL,Thalamus
+121,VPL,Thalamus
+122,VPM,Thalamus
+123,AV,Thalamus
+124,LGd-co,Thalamus
+125,LP,Thalamus
+126,MD,Thalamus
+127,PF,Thalamus
+128,CL,Thalamus
+129,VM,Thalamus
+130,AMv,Thalamus
+131,HY,Hypothal
+132,AHN,Hypothal
+133,LHA,Hypothal
+134,LPO,Hypothal
+135,MPN,Hypothal
+136,MPO,Hypothal
+137,PS,Hypothal
+138,PeF,Hypothal
+139,ZI,Hypothal
+140,STN,Hypothal
+141,AVPV,Hypothal
+142,ADP,Hypothal
+143,CP,Other
+144,ACB,Other
+145,STR,Other
+146,CLA,Other
+147,AId5,Other
+148,AId6a,Other
+149,AId6b,Other
+150,AIv1,Other
+151,AIv2/3,Other
+152,AIv5,Other
+153,AIv6a,Other
+154,GU5,Other
+155,GU6a,Other
+156,CA3,Other
+157,DG-mo,Other
+158,FS,Other
+159,PAL,Other
+160,MB,Other
+161,GPi,Other
+162,SNr,Other
+163,IA,Other
+164,BMAa,Other
+165,BST,Other
+166,CEAc,Other
+167,CEAl,Other
+168,CEAm,Other
+169,COAa,Other
+170,MEA,Other
+171,AAA,Other
+172,BMAp,Other
+173,LA,Other
+174,BLAa,Other
+175,BLAp,Other
+176,fiber tracts,Other
+177,ec,Other
+178,aco,Other
+179,act,Other
+180,ccb,Other
+181,ccg,Other
+182,chpl,Other
+183,cing,Other
+184,em,Other
+185,fa,Other
+186,fx,Other
+187,int,Other
+188,root,Other
+189,scwm,Other
+190,SEZ,Other
+191,VL,Other
+192,alv,Other
+193,fi,Other
+194,ml,Other
+195,or,Other
+196,nst,Other
+197,opt,Other
+198,st,Other
+199,"Caudoputamen- intermediate, dorsomedial, dorsal tip ",Int
+200,Lateral stripe of the striatum ,NAc

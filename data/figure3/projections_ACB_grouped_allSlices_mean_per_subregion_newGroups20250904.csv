@@ -1,0 +1,54 @@
+SubregionID,SubregionName,SubregionAcronym,GlobalMeanIntensity,TotalVoxelCount,MeanIntensity_SS,VoxelCount_SS,MeanIntensity_MOp_MOs,VoxelCount_MOp_MOs,MeanIntensity_PL,VoxelCount_PL,MeanIntensity_AId_AIp_GU_AIv,VoxelCount_AId_AIp_GU_AIv,MeanIntensity_ACA,VoxelCount_ACA,MeanIntensity_ORBvl_ORBl,VoxelCount_ORBvl_ORBl
+2395,"Caudoputamen- rostral, lateral, lateral strip","CPr, l, ls",0.408065420678956,1014,0.677647854319237,169,0.642453370508767,169,0.19502100585026,169,0.420245755418454,169,0.106749913450005,169,0.406274624527015,169
+2297,"Caudoputamen- rostra,l lateral, ventromedial","CPr, l, vm",0.345990544260812,19932,0.489653076138953,3322,0.435437861989883,3322,0.271824039570541,3322,0.376410924102995,3322,0.134498822927867,3322,0.368118540834634,3322
+2296,"Caudoputamen- rostral, intermediate, ventral","CPr, imv",0.302389749261063,3414,0.113997144397061,569,0.0819482058919025,569,0.653726130559886,569,0.136361305909644,569,0.467400347344988,569,0.360905361462897,569
+2376,"Caudoputamen- rostral extreme","CPre",0.240110243674649,8142,0.169697028337926,1357,0.148893705962321,1357,0.214923214664853,1357,0.259074273463731,1357,0.20432489971634,1357,0.443748339902722,1357
+2074,"Accumbens nucleus, core region","AcbC",0.151500148834894,75384,0.106607789173587,12564,0.0619819481552313,12564,0.23972498184875,12564,0.142176498090875,12564,0.173514206359681,12564,0.184995469381242,12564
+2007,"Lateral accumbens, shell region","LAcbSh",0.097688649623527,21522,0.0269252998486587,3587,0.0680625595094396,3587,0.128546165357571,3587,0.137932971887101,3587,0.030168333505558,3587,0.194496567632833,3587
+2006,"Accumbens nucleus, shell region","AcbSh",0.0631530385319971,65536,0.0135714468377496,10843,0.0140306462434917,10825,0.111901682875383,10967,0.061877267999558,10967,0.0629330748935447,10967,0.113407477248333,10967
+672,"Caudate Putamen","CP",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2491,"Caudoputamen- rostral","CPr",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2294,"Caudoputamen- rostral, medial","CPr, m",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2295,"Caudoputamen- rostral, intermediate, dorsal","CPr, imd",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2497,"Caudoputamen- rostral, lateral","CPr, l",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2492,"Caudoputamen- intermediate","CPi",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2498,"Caudoputamen- intermediate, dorsomedial","CPi, dm",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2299,"Caudoputamen- intermediate, dorsomedial, dorsolateral","CPi, dm, dl",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2298,"Caudoputamen- intermediate, dorsomedial, intermedial","CPi, dm, im",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2374,"Caudoputamen- intermediate, dorsomedial, central dorsal","CPi, dm, cd",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2380,"Caudoputamen- intermediate, dorsomedial, dorsal tip ","CPi, dm, dt",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2500,"Caudoputamen- intermediate, ventromedial","CPi, vm",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2302,"Caudoputamen- intermediate, ventromedial, ventromedial","CPi, vm, vm",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2480,"Caudoputamen- intermediate, ventromedial, ventral","CPi, vm, v",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2483,"Caudoputamen- intermediate, ventromedial, central ventromedial","CPi, vm, cvm",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2499,"Caudoputamen- intermediate, dorsolateral, ","CPi, dl",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2300,"Caudoputamen- intermediate, dorsolateral, dorsal","CPi, dl, d",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2301,"Caudoputamen- intermediate, dorsolateral, intermedial dorsal","CPi, dl, imd",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2501,"Caudoputamen- intermediate, ventrolateral","CPi, vl",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2479,"Caudoputamen- intermediate, ventrolateral, intermedial ventral","CPi, vl, imv",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2482,"Caudoputamen- intermediate, ventrolateral, ventral","CPi, vl, v",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2481,"Caudoputamen- intermediate, ventrolateral, ventral tip","CPi, vl, vt",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2370,"Caudoputamen- intermediate, ventrolateral, central ventrolateral","CPi, vl, cvl",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2496,"Caudoputamen- caudal","CPc",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2493,"Caudoputamen- caudal, dorsal","CPc, d",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2484,"Caudoputamen- caudal, dorsal, dorsomedial","CPc, d, dm",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2485,"Caudoputamen- caudal, dorsal, dorsolateral","CPc, d, dl",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2486,"Caudoputamen- caudal, dorsal, ventromedial","CPc, d, vm",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2494,"Caudoputamen- caudal, intermediate","CPc, i",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2487,"Caudoputamen- caudal, intermediate, dorsal","CPc, i, d",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2489,"Caudoputamen- caudal, intermediate, ventromedial","CPc, i, vm",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2488,"Caudoputamen- caudal, intermediate, ventrolateral","CPc, i, vl",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2490,"Caudoputamen- caudal, ventral","CPc, v",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2495,"Caudoputamen- caudal extreme","CPce",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+56,"Accumbens nucleus","Acb",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+298,"Magnocellular nucleus","MCPO",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2121,"Magnocellular nucleus of the posterior commissure","MCPC",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2227,"Caudal periolivary nucleus","CPO",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2237,"Ventral cochlear nucleus, posterior part","VCP",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+2243,"Ventral cochlear nucleus, posterior part, octopus cell area","VCPO",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+326,"superior cerebellar peduncle","scp",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+812,"decussation of the superior cerebellar peduncle","xscp",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+78,"middle cerebellar peduncle","mcp",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+1123,"inferior cerebellar peduncle","icp",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+924,"cerebral peduncle","cp",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0
+908,"anterior commissure, posterior limb","acp",NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0,NaN,0

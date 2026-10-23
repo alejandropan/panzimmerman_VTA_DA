@@ -1,0 +1,18 @@
+name: panzimmerman2026-ibl
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10.13
+  - pip
+  - pip:
+      - numpy==1.26.4
+      - pandas==2.2.3
+      - scikit-image==0.19.3
+      - ibllib==2.20.0
+      - iblatlas==0.10.0
+      - iblutil==1.20.0
+      - ONE-api==3.4.1
+      - mayavi==4.8.1
+      - vtk==9.3.0
+      - PyQt5==5.15.10
+      - ipython==8.22.2
